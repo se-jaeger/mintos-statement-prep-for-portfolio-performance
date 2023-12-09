@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "mintos-statement-prep-for-portfolio-performance"
+version = "0.1.0"
+description = ""
+authors = ["Sebastian Jäger <git@sebastian-jaeger.me>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.1.4"
+jupyterlab = "^4.0.9"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.7"
+mypy = "^1.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+prep-mintos-statements = 'mintos_statement_prep_for_portfolio_performance.main:start'
+
+
+[tool.mypy]
+python_version = "3.10"
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+fix = true
+extend-include = ["*.ipynb"]
+select = ["ALL"]
+ignore = ["D100", "D104", "ISC003", "TD003"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
