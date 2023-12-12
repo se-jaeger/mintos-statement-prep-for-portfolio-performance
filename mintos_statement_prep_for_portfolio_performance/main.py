@@ -23,6 +23,7 @@ type_mapping = {
     "Zweitmarktgebühr": "Gebühren",
     "Einzahlungen": "Einlage",
     "Abhebung": "Entnahme",
+    "Antrag auf Beitrag/Spende": "Gebühren",
 }
 
 
@@ -59,11 +60,17 @@ def start() -> None:
     )
 
     if len(data["Typ"].unique().tolist()) != how_many_types_expected:
-        msg = f"Expecting {how_many_types_expected} distinct values here. Please check if Mintos export changed."
+        msg = (
+            f"Expecting {how_many_types_expected} distinct values here, got: '{data['Typ'].unique().tolist()}'. "
+            + "Please check if Mintos export changed."
+        )
         raise Exception(msg)  # noqa: TRY002
 
-    output_file_name = f"{datetime.now().strftime('%Y-%m-%d')}.csv"  # noqa: DTZ005
+    output_file_name = Path("output") / f"{datetime.now().strftime('%Y-%m-%d')}.csv"  # noqa: DTZ005
     _ask_if_ok(f"Using the following output file: {output_file_name}")
+
+    if not output_file_name.parent.exists():
+        output_file_name.parent.mkdir()
 
     data[columns_of_interest].to_csv(
         output_file_name,
