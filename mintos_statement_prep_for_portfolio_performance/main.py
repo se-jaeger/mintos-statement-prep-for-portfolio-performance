@@ -4,9 +4,6 @@ from pathlib import Path
 
 import pandas as pd
 
-columns_of_interest = ["Datum", "Typ", "Wert", "Buchungswährung"]
-how_many_types_expected = 5
-
 type_mapping = {
     # Map Mintos types to Portfolio Performance types
     "Tilgungszahlungen": None,
@@ -26,6 +23,9 @@ type_mapping = {
     "Abhebung": "Entnahme",
     "Antrag auf Beitrag/Spende": "Gebühren",
 }
+
+columns_of_interest = ["Datum", "Typ", "Wert", "Buchungswährung"]
+how_many_types_expected = len(set(type_mapping.values()).difference({None}))
 
 
 def _ask_if_ok(msg: str) -> None:
