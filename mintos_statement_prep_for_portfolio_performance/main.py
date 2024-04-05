@@ -12,6 +12,7 @@ type_mapping = {
     "Tilgungszahlungen": None,
     "Zinszahlungen": "Zinsen",
     "Erhaltene Zinsen aus Kreditrückkauf": "Zinsen",
+    "Zinseinnahmen aus Kreditrückkauf": "Zinsen",
     "Erhaltene Tilgung aus Kreditrückkauf": None,
     "Übertragungsabgleich der Verzugszinseinnahmen": "Zinsen",
     "Investitionen in Darlehen": None,
