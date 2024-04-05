@@ -6,7 +6,7 @@ Simple CLI that
 3. processes the statements
    1. map Mintos types to Portfolio Performance types
    2. sums all statements for each day and type to minimize rounding inaccuracies ([see here](https://github.com/portfolio-performance/portfolio/issues/1682#issuecomment-667650637))
-4. export proccessed data as CSV to import into Portfolio Performance
+4. export processed data as CSV to import into Portfolio Performance
 
 ## Some Notes
 Simple tool implemented to make my personal workflow more convenient. However, maybe it also helps you.
@@ -14,7 +14,7 @@ Simple tool implemented to make my personal workflow more convenient. However, m
 **Tested for:**
 - German Mintos exports and Portfolio Performance
 - MacOS
-- Python 10
+- Python 3.10/3.12
 - Poetry installed package
 
 I don't see a reason why it shouldn't work for another technical setup. Only `pandas` is a requirement. PR's are welcome to make the code more generic regarding language settings.
