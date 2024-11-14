@@ -11,3 +11,6 @@ __pycache__/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# jupyter
+.ipynb_checkpoints
